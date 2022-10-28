@@ -46,11 +46,15 @@ class Model {
                 // check that the response, which contains the video items, is not nil
                 if response.items != nil {
                 
-                    // Call the videosFetched method of the delegate
-                    self.delegate?.videosFetched(response.items!)
+                    DispatchQueue.main.async {
+                        
+                        // Call the videosFetched method of the delegate
+                        self.delegate?.videosFetched(response.items!)
+                        
+                    }
                 }
                 
-                dump(response)
+                // dump(response)
         
             }
             catch {
